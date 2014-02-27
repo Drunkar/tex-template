@@ -1,0 +1,46 @@
+\documentclass[10.5pt,a4paper]{report}
+\input{template/begin}
+\bibliographystyle{plain}
+\renewcommand{\include}[1]{}
+\renewcommand\documentclass[2][]{}
+%
+\begin{titlepage}
+\vspace*{3cm}
+\centering {\Huge 修士論文} \\
+\vspace*{3cm}
+\begin{spacing}{1.5}
+\centering {\bf \LARGE HOGE HOGE} \\ 
+\end{spacing}
+\vspace*{0.3cm}
+% \centering {\Large Enumerating Minimally Rigid Body-Hinge Graphs\\and Application to Form Design} \\
+\vspace*{7cm}
+\centering {\Large 指導教員 :\\ THE WHO 教授} \\
+\vspace*{1cm}
+\centering {\Large 半笑い大学大学院 思い出し笑い学研究科 含み笑い学専攻\\
+アメとムチ工学分野 WHO研究室 修士課程2回生} \\
+\vspace*{0.5cm}
+\centering {\Large WAGA　HAI} \\
+\vspace*{0.5cm}
+\centering {\Large 2014年2月} \\
+\end{titlepage}
+
+\clearpage
+
+\thispagestyle{empty}
+\mbox{}\newpage
+
+\tableofcontents
+\thispagestyle{empty}
+\clearpage{}
+
+\setcounter{page}{1}
+\input{introduction}
+\input{02}
+\input{03}
+\input{conclusion}
+\clearpage{}
+\bibliography{biblio}
+\input{acknowledgement}
+\input{appendix1}
+
+\end{document}

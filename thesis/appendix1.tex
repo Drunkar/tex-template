@@ -1,0 +1,36 @@
+\documentclass[10.5pt,a4paper]{report}
+\include{template/begin}
+\bibliographystyle{plain}
+
+%\appendix{}
+\makeatletter{}
+\def\@makechapterhead#1{
+\vspace*{2\baselineskip}
+{\parindent \z@ \raggedright \normalfont
+\fontsize{30pt}{28pt} \headfont
+\@chapapp\thechapter
+\hspace{0.5em}#1}}
+\vspace{0.5em}
+\makeatother{}
+\chapter{ものすごいC++実装ソースコード}
+
+\begin{multicols}{2}
+\section*{sugoi.cpp}
+{\tiny
+\begin{minted}[mathescape,
+               linenos,
+               numbersep=5pt,
+               framesep=2mm] {cpp}
+#include <iostream>
+
+int main() {
+  std::cout << "Sugee, World!" << std::endl;
+
+  return 0;
+}
+\end{minted}
+}
+
+\end{multicols}
+
+\include{template/end}

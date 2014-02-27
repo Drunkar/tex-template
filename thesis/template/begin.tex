@@ -1,0 +1,106 @@
+% myjapanese.sty
+\RequirePackage{xltxtra}
+% フォント設定
+\setmainfont[Scale=0.92,BoldFont=ヒラギノ角ゴ ProN]{ヒラギノ明朝 ProN}
+\setsansfont[Scale=0.92]{ヒラギノ角ゴ ProN}
+\setmonofont{Mona}
+\newfontfamily\engrm[Ligatures=TeX]{Times New Roman}
+\newfontfamily\engsf[Ligatures=TeX,Scale=0.92]{Helvetica Neue}
+
+% if these fonts do not exist
+% \setmainfont{IPAPMincho}
+% \setsansfont{IPAPGothic}
+% \setmonofont{IPAGothic}
+
+\newcommand{\headfont}{\rmfamily}
+\def\en#1{{\engrm#1}} % 欧文フォントで出力
+% 日本語を含む段落を行分割するための設定
+\XeTeXlinebreaklocale "ja"
+\XeTeXlinebreakskip=0pt plus 1pt minus 0.1pt
+\XeTeXlinebreakpenalty=0
+% 半角分戻る
+\def\<{\@ifstar{\zx@hwback\nobreak}{\zx@hwback\relax}}
+\def\zx@hwback#1{\leavevmode#1\hskip-.5em\relax}
+% 簡易レイアウト設定
+\RequirePackage[scale=0.8]{geometry}
+\RequirePackage{indentfirst}
+\RequirePackage{setspace}
+\setstretch{1.5}
+\parindent=1em
+% 後は名前定義を適当に
+\def\contentsname{目次}
+\def\listfigurename{図目次}
+\def\listtablename{表目次}
+\def\refname{参考文献}
+\def\bibname{参考文献}
+\def\indexname{索引}
+\def\appendixname{付録}
+\renewcommand{\figurename}{図}
+\renewcommand{\tablename}{表}
+% EOF
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{bm}
+\usepackage{graphicx}
+\usepackage{ascmac}
+\usepackage{dcolumn,multirow,ccaption}
+\usepackage{wrapfig}
+\usepackage{url}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage{minted}
+%
+\makeatletter{}
+    \renewcommand{\theequation}{
+    \thesection.\arabic{equation}}
+    \@addtoreset{equation}{section}
+\makeatother{}
+%
+\newcommand{\divergence}{\mathrm{div}\,}  %ダイバージェンス
+\newcommand{\grad}{\mathrm{grad}\,}  %グラディエント
+\newcommand{\rot}{\mathrm{rot}\,}  %ローテーション
+%
+\renewcommand{\thepage}{- \arabic{page} -}
+\newtheorem{Theorem}{定理}[chapter]
+\newtheorem{Definition}{定義}[chapter]
+\newtheorem{prop}{命題}[chapter]
+\newtheorem{Lemma}{補題}[chapter]
+\newtheorem{con}{予想}[chapter]
+\newtheorem{clm}{主張}[chapter]
+\newtheorem{proof}{証明}[chapter]
+\renewcommand{\proof}{\paragraph{証明}}
+\renewcommand{\chaptername}[2]{\arabic{chapter}.}
+%
+\makeatletter{}
+\def\@makechapterhead#1{
+\vspace*{2\baselineskip}
+{\parindent \z@ \raggedright \normalfont
+\fontsize{30pt}{28pt} \headfont
+\ifnum \c@secnumdepth >\m@ne
+% \if@mainmatter
+\@chapapp\thechapter\@chappos
+\hspace{0.5em}
+% \fi
+\fi
+#1\par\nobreak
+\vskip 1\baselineskip}}
+\makeatother{}
+
+% for ceiling function
+\usepackage{xparse}% http://ctan.org/pkg/xparse
+\NewDocumentCommand{\ceil}{s O{} m}{%
+  \IfBooleanTF{#1} % starred
+    {\left\lceil#3\right\rceil} % \ceil*[..]{..}
+    {#2\lceil#3#2\rceil} % \ceil[..]{..}
+}
+
+% 表を通し番号に
+% \makeatletter
+% \renewcommand{\thetable}{%
+% \arabic{table}}
+% \makeatother
+
+\begin{document}
